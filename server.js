@@ -20,14 +20,21 @@ const database_url = process.env.DATABASE_URL;
 
 // Middleware
 const allowedOrigins = [
-  "http://localhost:5173", 
+  "http://localhost:5173",
   "https://food-app-frontend-p46d.onrender.com"
 ];
 
 app.use(cors({
-  origin: allowedOrigins,
-  credentials: true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
 }));
+
 
 
 app.use(express.json());
