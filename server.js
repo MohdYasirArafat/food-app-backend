@@ -19,10 +19,16 @@ const port = process.env.PORT || 5000;
 const database_url = process.env.DATABASE_URL;
 
 // Middleware
+const allowedOrigins = [
+  "http://localhost:5173", 
+  "https://food-app-frontend-p46d.onrender.com"
+];
+
 app.use(cors({
-  origin: "https://food-app-frontend-p46d.onrender.com",
+  origin: allowedOrigins,
   credentials: true
 }));
+
 
 app.use(express.json());
 // Serve uploads folder statically
