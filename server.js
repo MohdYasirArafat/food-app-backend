@@ -19,7 +19,7 @@ const port = process.env.PORT || 5000;
 const database_url = process.env.DATABASE_URL;
 
 // Middleware
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: "https://food-app-frontend-p46d.onrender.com" }));
 app.use(express.json());
 // Serve uploads folder statically
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
