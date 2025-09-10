@@ -24,5 +24,4 @@ dist/
 build/
 coverage/
 
-# Uploads (if not needed in repo)
-uploads/
+
